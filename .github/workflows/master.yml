@@ -1,4 +1,4 @@
-name "pagely-deploy"
+name: "pagely-deploy"
 on:
   push:
     branches:
