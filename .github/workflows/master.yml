@@ -1,0 +1,25 @@
+name "pagely-deploy"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run composer install
+        uses: docker://composer:1.9.1
+        with:
+          args: install
+
+      - name: Deploy to vps
+        uses: pagely/deploy-action@master
+        with:
+          token: ${{ secrets.PAGELY_TOKEN }}
+          integrationId: ${{ secrets.PAGELY_INTEGRATION_ID }}
+          appId: ${{ secrets.PAGELY_APP_ID }}
+          dest: /app
+          files: "./**"
