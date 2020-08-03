@@ -20,8 +20,7 @@ jobs:
       - name: Deploy to vps
         uses: pagely/action-deploy@master
         with:
-          token: ${{ secrets.PAGELY_TOKEN }}
-          integrationId: ${{ secrets.PAGELY_INTEGRATION_ID }}
-          appId: ${{ secrets.PAGELY_APP_ID }}
-          dest: /app
-          files: "./**"
+          PAGELY_INTEGRATION_SECRET: ${{ secrets.PAGELY_TOKEN }}
+          PAGELY_INTEGRATION_ID: ${{ secrets.PAGELY_INTEGRATION_ID }}
+          PAGELY_APP_ID: ${{ secrets.PAGELY_APP_ID }}
+          PAGELY_DEPLOY_DEST: /app
