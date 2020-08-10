@@ -3,4 +3,4 @@ set -eu
 
 pwd
 cd app
-php artisan migrate: --force
+php artisan migrate --force
