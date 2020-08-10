@@ -3,4 +3,4 @@ set -eu
 
 pwd
 cd app
-./artisan migrate:status
+php artisan migrate:status
